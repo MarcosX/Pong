@@ -7,6 +7,8 @@ public class Ball : MonoBehaviour
 {
     public float speed = 30;
 
+    public float speedIncrease = 3;
+
     public GameObject scoreLeft;
 
     public GameObject scoreRight;
@@ -18,6 +20,7 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
+        speed += speedIncrease;
         if (collisionInfo.gameObject.name == "RacketLeft")
         {
             float yDirection = hitFactor(transform.position, collisionInfo.transform.position, collisionInfo.collider.bounds.size.y);
@@ -35,12 +38,27 @@ public class Ball : MonoBehaviour
         if (collisionInfo.gameObject.name == "WallRight")
         {
             int newScore = intParseFast(scoreLeft.GetComponent<Text>().text) + 1;
-            scoreLeft.GetComponent<Text>().text = "" + newScore;
+            if (newScore > 3)
+            {
+                resetGame();
+            }
+            else
+            {
+                scoreLeft.GetComponent<Text>().text = "" + newScore;
+            }
         }
         if (collisionInfo.gameObject.name == "WallLeft")
         {
             int newScore = intParseFast(scoreRight.GetComponent<Text>().text) + 1;
             scoreRight.GetComponent<Text>().text = "" + newScore;
+            if (newScore > 3)
+            {
+                resetGame();
+            }
+            else
+            {
+                scoreRight.GetComponent<Text>().text = "" + newScore;
+            }
         }
     }
 
@@ -49,7 +67,7 @@ public class Ball : MonoBehaviour
         return (ballPosition.y - racketPosition.y) / racketHeight;
     }
 
-    public static int intParseFast(string value)
+    int intParseFast(string value)
     {
         int result = 0;
         for (int i = 0; i < value.Length; i++)
@@ -58,6 +76,15 @@ public class Ball : MonoBehaviour
             result = 10 * result + (letter - 48);
         }
         return result;
+    }
+
+    void resetGame()
+    {
+        speed = 30;
+        transform.position = new Vector2(0, 0);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized * speed;
+        scoreRight.GetComponent<Text>().text = "0";
+        scoreLeft.GetComponent<Text>().text = "0";
     }
 
 }
