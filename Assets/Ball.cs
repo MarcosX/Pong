@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
 
     public GameObject scoreLeft;
     public GameObject scoreRight;
+    public GameObject gameLeft;
+    public GameObject gameRight;
 
     public GameObject setLeft;
     public GameObject setRight;
@@ -45,6 +47,8 @@ public class Ball : MonoBehaviour
             int newScore = intParseFast(scoreLeft.GetComponent<Text>().text) + 1;
             if (newScore > 3)
             {
+                int gameScore = intParseFast(gameLeft.GetComponent<Text>().text) + 1;
+                gameLeft.GetComponent<Text>().text = "" + gameScore;
                 resetGame();
             }
             else
@@ -58,6 +62,8 @@ public class Ball : MonoBehaviour
             scoreRight.GetComponent<Text>().text = "" + newScore;
             if (newScore > 3)
             {
+                int gameScore = intParseFast(gameRight.GetComponent<Text>().text) + 1;
+                gameRight.GetComponent<Text>().text = "" + gameScore;
                 resetGame();
             }
             else

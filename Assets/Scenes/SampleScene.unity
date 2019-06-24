@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 410149393}
   - component: {fileID: 410149392}
   m_Layer: 5
-  m_Name: SetRight
+  m_Name: GameRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Set
+  m_Text: Game
 --- !u!222 &410149393
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 817542294}
   - component: {fileID: 817542293}
   m_Layer: 5
-  m_Name: GameRight
+  m_Name: SetRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game
+  m_Text: Set
 --- !u!222 &817542294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 969109111}
   - component: {fileID: 969109110}
   m_Layer: 5
-  m_Name: SetLeft
+  m_Name: GameLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,7 +946,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Set
+  m_Text: Game
 --- !u!222 &969109111
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1079,8 +1079,10 @@ MonoBehaviour:
   speedIncrease: 1.5
   scoreLeft: {fileID: 600963316}
   scoreRight: {fileID: 567704458}
-  setLeft: {fileID: 0}
-  setRight: {fileID: 0}
+  gameLeft: {fileID: 1084195779}
+  gameRight: {fileID: 1794065815}
+  setLeft: {fileID: 600963316}
+  setRight: {fileID: 567704458}
   racketLeft: {fileID: 739881215}
   racketRight: {fileID: 2100223774}
 --- !u!50 &983608018
@@ -1671,7 +1673,7 @@ GameObject:
   - component: {fileID: 1881234856}
   - component: {fileID: 1881234855}
   m_Layer: 5
-  m_Name: GameLeft
+  m_Name: SetLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1729,7 +1731,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game
+  m_Text: Set
 --- !u!222 &1881234856
 CanvasRenderer:
   m_ObjectHideFlags: 0
