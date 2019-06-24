@@ -7,15 +7,20 @@ public class Ball : MonoBehaviour
 {
     public float speed = 30;
 
-    public float speedIncrease = 3;
+    public float speedIncrease = 1.5f;
 
     public GameObject scoreLeft;
-
     public GameObject scoreRight;
+
+    public GameObject setLeft;
+    public GameObject setRight;
+
+    public GameObject racketLeft;
+    public GameObject racketRight;
 
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized * speed;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-0.3f, 0.3f)).normalized * speed;
     }
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
@@ -82,9 +87,11 @@ public class Ball : MonoBehaviour
     {
         speed = 30;
         transform.position = new Vector2(0, 0);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized * speed;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-0.3f, 0.3f)).normalized * speed;
         scoreRight.GetComponent<Text>().text = "0";
         scoreLeft.GetComponent<Text>().text = "0";
+        racketLeft.transform.localScale = new Vector2(1,1);
+        racketRight.transform.localScale = new Vector2(1,1);
     }
 
 }
